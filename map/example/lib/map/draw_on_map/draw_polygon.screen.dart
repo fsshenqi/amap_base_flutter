@@ -1,5 +1,4 @@
 import 'package:amap_base_map/amap_base_map.dart';
-import 'package:decorated_flutter/decorated_flutter.dart';
 import 'package:flutter/material.dart';
 
 const polygonList = const [
@@ -32,17 +31,6 @@ class _DrawPolygonScreenState extends State<DrawPolygonScreen> {
       body: AMapView(
         onAMapViewCreated: (controller) {
           _controller = controller;
-          loading(
-            context,
-            controller.addPolygon(
-              PolygonOptions(
-                points: polygonList,
-                strokeWidth: 10,
-                strokeColor: Colors.black,
-                fillColor: Colors.blueAccent,
-              ),
-            ),
-          ).catchError((e) => showError(context, e.toString()));
         },
         amapOptions: AMapOptions(),
       ),
